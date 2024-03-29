@@ -1,0 +1,14 @@
+{
+  "name": "employeewageassignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "EmployeeWage.js",
+  "scripts": {
+    "start": "node EmployeeWage.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
