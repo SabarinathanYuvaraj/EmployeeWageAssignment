@@ -1,0 +1,1 @@
+This Javascript project helps us to calculate employee wages
