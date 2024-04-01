@@ -7,6 +7,7 @@ const partTimeHour  = 4
 let employeeStatus = ""
 const fullTimeWage =  fullTimeHour * wagePerHour 
 const partTimeWage =  partTimeHour * wagePerHour
+let totalWorkingHour = 0
 
 
 
@@ -81,24 +82,41 @@ while(condition){
 function employeeDailyWage (){
 
     if(employeeStatus == "fullTime"){ 
+        totalWorkingHour += fullTimeHour
     return fullTimeWage
     }
     else if(employeeStatus == "partTime"){
-
+        totalWorkingHour += partTimeHour
         return partTimeWage
     }
     else if(employeeStatus == "absent"){
+        totalWorkingHour += 0
         return 0
+    }
+    else if(employeeStatus.length == 0){
+        return -1
     }
 }
 
 function employeeMontlyWage(){
+     
+    let condition = true
+    let totalWorkingDays = 0
     let montlyWage = 0
-    for(let i = 0 ; i<20 ; i++){
+    while(condition){
+        if(totalWorkingDays <= 20 &&  totalWorkingHour <= 100 ){
         employeeAttendence()
-        let oneDayWage = employeeDailyWage()
-        montlyWage += oneDayWage
+        montlyWage += employeeDailyWage()
+        totalWorkingDays += 1
+        }
+        else{
+            totalWorkingHour = 0
+            condition = false
+            return `\nthe montly wage for the employee : ${montlyWage}`
+        }
     }
-    return `\nthe montly wage for the employee : ${montlyWage}`
+
+
+    
 }
 
